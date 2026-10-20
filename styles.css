@@ -1,0 +1,430 @@
+/* =========================================================
+   Solar System Quiz - own CSS (replaces Bootstrap), mobile first.
+   Base rules are for phones; min-width media queries scale up.
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #212529;
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Backgrounds_and_borders/Using_multiple_backgrounds?%20*/
+    background-image:
+    linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
+    url("BG.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+ul 
+{
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    gap: 0.5rem;
+}
+h1,
+h2 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 1rem;
+}
+
+p {
+    margin: 0 0 1rem;
+}
+
+/* ---------- Layout ---------- */
+.page-header {
+    padding: 1.5rem 1rem 0;
+}
+
+.page-header h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.page {
+    padding: 1rem;
+}
+
+.page-footer {
+    padding: 1rem;
+    text-align: center;
+    color: #495057;
+    border-top: 1px solid #dee2e6;
+}
+
+.page-footer p {
+    margin: 0;
+}
+
+
+/* ---------- Buttons ---------- */
+.btn {
+    font: inherit;
+    font-size: 1.1rem;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    padding: 0.5rem 1rem;
+    color: #ffffff;
+    background: #212529;
+    border: 2px solid #212529;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #424649;
+    border-color: #424649;
+}
+
+.btn:focus-visible,
+input:focus-visible {
+    outline: 3px solid #0d6efd;
+    outline-offset: 2px;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-large {
+    flex: 1 1 7rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 1.25rem;
+}
+
+/* ---------- Question number buttons ---------- */
+.question-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ---------- Questions ---------- */
+.question {
+    padding: 1rem 0;
+}
+
+.question h2 {
+    font-size: 1.6rem;
+}
+
+.question-text {
+    margin-bottom: 1.5rem;
+    font-size: 1.35rem;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.option label {
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    flex: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font: inherit;
+    font-size: 1.25rem;
+    color: #212529;
+    background: #ffffff;
+    border: 2px solid #6c757d;
+    border-radius: 0.5rem;
+}
+
+input[type="text"]::placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+/* Controls row */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+/* ---------- Results ---------- */
+#results-screen {
+    display: none;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+#results-screen h2 {
+    font-size: 1.8rem;
+}
+
+.score {
+    margin-bottom: 1.5rem;
+    font-size: clamp(4rem, 22vw, 12rem);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.btn-restart {
+    width: 100%;
+    padding: 1.25rem 1rem;
+    font-size: clamp(1.75rem, 8vw, 4rem);
+    font-weight: 700;
+}
+
+/* ---------- Accessibility helper ---------- */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ---------- Tablets and up ---------- */
+@media (min-width: 40em) {
+    .page-header {
+        padding: 2rem 1.5rem 0;
+    }
+
+    .page-header h1 {
+        font-size: 2.75rem;
+    }
+
+    .page {
+        padding: 1.5rem;
+    }
+
+    .question {
+        min-height: 50vh;
+        padding: 2rem 0;
+    }
+
+    .question h2 {
+        font-size: 2.25rem;
+    }
+
+    .question-text {
+        font-size: 1.75rem;
+    }
+
+    .option label {
+        font-size: 1.5rem;
+    }
+
+    .controls {
+
+        /*https://www.w3schools.com/cssref/playdemo.php?filename=playcss_justify-content*/
+        justify-content: space-between;
+    }
+
+    .btn-large {
+        flex: 0 1 auto;
+    }
+
+    #results-screen {
+        min-height: 60vh;
+    }
+
+    #results-screen h2 {
+        font-size: 2.5rem;
+    }
+}
+
+/* ---------- Desktops ---------- */
+@media (min-width: 64em) {
+    .page-header h1 {
+        font-size: 3.5rem;
+    }
+
+    .page {
+        padding: 1.5rem 3rem;
+    }
+
+    .question h2 {
+        font-size: 3rem;
+    }
+
+    .question-text {
+        font-size: 2rem;
+    }
+
+    .option label {
+        font-size: 1.75rem;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+}
+/*https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion*/
+@media (prefers-reduced-motion: reduce) {   
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* =========================================================
+   Open-book reference (Wikipedia API)
+   ========================================================= */
+.reference {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 0.75rem;
+}
+
+.reference h2 {
+    font-size: 1.4rem;
+}
+
+.reference label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+}
+
+.reference-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+select {
+    width: 100%;
+    min-height: 2.75rem;
+    padding: 0.5rem 0.75rem;
+    font: inherit;
+    font-size: 1.1rem;
+    color: #212529;
+    background: #ffffff;
+    border: 2px solid #6c757d;
+    border-radius: 0.5rem;
+}
+
+select:focus-visible {
+    outline: 3px solid #0d6efd;
+    outline-offset: 2px;
+}
+
+select[aria-invalid="true"] {
+    border-color: #b02a37;
+}
+
+.field-error {
+    min-height: 0;
+    margin: 0.5rem 0 0;
+    color: #b02a37;
+    font-weight: 600;
+}
+
+.field-error:empty {
+    display: none;
+}
+
+.status {
+    min-height: 1.5rem;
+    margin: 0.75rem 0 0;
+    color: #495057;
+}
+
+.status-error {
+    color: #b02a37;
+    font-weight: 600;
+}
+
+.reference-card {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+}
+
+.reference-card h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1.4rem;
+}
+
+.reference-card__description {
+    color: #495057;
+    font-style: italic;
+}
+
+.reference-card__credit {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #495057;
+}
+
+.reference-card__figure {
+    margin: 0;
+}
+
+.reference-card__figure img {
+    display: block;
+    max-width: 100%;
+    max-height: 18rem;
+    height: auto;
+    margin-inline: auto;
+    border-radius: 0.5rem;
+}
+
+a[href^="http"] {
+    color: #0a58ca;
+}
+
+@media (min-width: 40em) {
+    .reference {
+        padding: 1.5rem;
+    }
+
+    .reference-row {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .reference-row select {
+        flex: 1;
+    }
+
+    .reference-card {
+        grid-template-columns: 2fr 1fr;
+        align-items: start;
+    }
+}

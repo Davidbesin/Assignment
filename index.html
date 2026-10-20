@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="page-header">
+        <h1>Solar System Quiz</h1>
+    </header>
+
+    <main class="page">
+
+        <!-- QUIZ SCREEN -->
+        <section id="quiz-screen" aria-label="Quiz">
+            <div class="question-nav" role="group" aria-label="Question navigation">
+                <ul>
+                    <li><button type="button" class="btn" id="button1" aria-label="Go to question 1">1</button></li>
+                    <li><button type="button" class="btn" id="button2" aria-label="Go to question 2">2</button></li>
+                    <li><button type="button" class="btn" id="button3" aria-label="Go to question 3">3</button></li>
+                    <li><button type="button" class="btn" id="button4" aria-label="Go to question 4">4</button></li>
+                    <li><button type="button" class="btn" id="button5" aria-label="Go to question 5">5</button></li>
+                    <li><button type="button" class="btn" id="button6" aria-label="Go to question 6">6</button></li>
+                    <li><button type="button" class="btn" id="button7" aria-label="Go to question 7">7</button></li>
+                    <li><button type="button" class="btn" id="button8" aria-label="Go to question 8">8</button></li>
+                    <li><button type="button" class="btn" id="button9" aria-label="Go to question 9">9</button></li>
+                    <li><button type="button" class="btn" id="button10" aria-label="Go to question 10">10</button></li>
+                </ul>
+            </div>
+
+            <form id="quiz-form">
+                <div id="template1" class="question" role="group" aria-labelledby="template1Question">
+                    <h2>Multiple Choice</h2>
+                    <p class="question-text" id="template1Question">Which planet is known as the Red Planet?</p>
+                    <div class="option">
+                        <input type="radio" name="template1" id="template1A" value="A">
+                        <label for="template1A" id="template1OptionA">Earth</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="template1" id="template1B" value="B">
+                        <label for="template1B" id="template1OptionB">Mars</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="template1" id="template1C" value="C">
+                        <label for="template1C" id="template1OptionC">Venus</label>
+                    </div>
+                </div>
+
+                <div id="template2" class="question" role="group" aria-labelledby="template2Question">
+                    <h2>Fill in the Gap</h2>
+                    <p class="question-text" id="template2Question">The largest planet in our Solar System is ______.</p>
+                    <label for="template2Input" class="visually-hidden">Your answer</label>
+                    <input type="text" id="template2Input" placeholder="Enter your answer" autocomplete="off">
+                </div>
+
+                <div id="template3" class="question" role="group" aria-labelledby="template3Question">
+                    <h2>Select Multiple Answers</h2>
+                    <p class="question-text" id="template3Question">Which of these are planets in our Solar System?</p>
+                    <div class="option">
+                        <input type="checkbox" name="template3" id="template3A" value="A">
+                        <label for="template3A" id="template3OptionA">Mars</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" name="template3" id="template3B" value="B">
+                        <label for="template3B" id="template3OptionB">Pluto</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" name="template3" id="template3C" value="C">
+                        <label for="template3C" id="template3OptionC">Jupiter</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" name="template3" id="template3D" value="D">
+                        <label for="template3D" id="template3OptionD">Venus</label>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button type="button" class="btn btn-large" id="previous-btn">Previous</button>
+                    <button type="button" class="btn btn-large" id="next-btn">Next</button>
+                    <button type="button" class="btn btn-large" id="submit-btn">Submit</button>
+                </div>
+            </form>
+
+            <!-- OPEN-BOOK REFERENCE (Wikipedia API) -->
+            <section class="reference" aria-labelledby="reference-heading">
+                <h2 id="reference-heading">Open-book reference</h2>
+                <p>Stuck? Choose a topic to read a short Wikipedia summary and get a link to read deeper on the topic.</p>
+
+                <form id="reference-form" novalidate>
+                    <label for="reference-select">Topic</label>
+                    <div class="reference-row">
+                        <select id="reference-select" name="topic" required aria-describedby="reference-select-error">
+                            <option value="">Choose a topic…</option>
+                            <optgroup label="Star">
+                                <option value="Sun">The Sun</option>
+                                <option value="Sirius">Sirius</option>
+                                <option value="Polaris">Polaris</option>
+                            </optgroup>
+                            <optgroup label="Planets">
+                                <option value="Mercury_(planet)">Mercury</option>
+                                <option value="Venus">Venus</option>
+                                <option value="Earth">Earth</option>
+                                <option value="Mars">Mars</option>
+                                <option value="Jupiter">Jupiter</option>
+                                <option value="Saturn">Saturn</option>
+                                <option value="Uranus">Uranus</option>
+                                <option value="Neptune">Neptune</option>
+                            </optgroup>
+                            <optgroup label="Dwarf planets">
+                                <option value="Pluto">Pluto</option>
+                                <option value="Ceres_(dwarf_planet)">Ceres</option>
+                                <option value="Eris_(dwarf_planet)">Eris</option>
+                            </optgroup>
+                            <optgroup label="Moons">
+                                <option value="Moon">The Moon</option>
+                                <option value="Phobos_(moon)">Phobos</option>
+                                <option value="Deimos_(moon)">Deimos</option>
+                                <option value="Io_(moon)">Io</option>
+                                <option value="Europa_(moon)">Europa</option>
+                                <option value="Ganymede_(moon)">Ganymede</option>
+                                <option value="Titan_(moon)">Titan</option>
+                                <option value="Enceladus">Enceladus</option>
+                                <option value="Triton_(moon)">Triton</option>
+                            </optgroup>
+                            <optgroup label="Other">
+                                <option value="Asteroid_belt">Asteroid belt</option>
+                                <option value="Milky_Way">The Milky Way</option>
+                            </optgroup>
+                        </select>
+                        <button type="submit" class="btn" id="reference-btn">Show summary</button>
+                    </div>
+                    <p class="field-error" id="reference-select-error"></p>
+                </form>
+
+                <p id="reference-status" class="status" role="status" aria-live="polite"></p>
+                <div id="reference-result" aria-busy="false"></div>
+            </section>
+        </section>
+
+        <!-- RESULTS SCREEN -->
+        <section id="results-screen" aria-label="Results">
+            <h2>Your Score</h2>
+            <p class="score" id="scoreText" aria-live="polite">0 / 10</p>
+            <button type="button" class="btn btn-restart" id="restart-btn">Restart</button>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <p>Solar System Quiz. Reference text from <a href="https://en.wikipedia.org/">Wikipedia</a> (CC BY-SA).</p>
+        <br>
+        <p>Background Image by <a href="https://www.kuraplan.com/free-images/space_solar_system--dac63be8-35f5-4665-84f9-b0a9bca5a7fe">Kuraplan</a></p>
+    </footer>
+
+    <script src="questions.js"></script>
+    <script src="app.js"></script>
+    <script src="explorer.js"></script>
+</body>
+</html>
